@@ -198,7 +198,7 @@ void decrypt()
 void solve()
 {
     string ch,key,str;;
-    cout << "Encrpty or Decypt?(e for encrypt ,d for decrypt): ";
+    cout << "Encrypt or Decrypt?(e for encrypt ,d for decrypt): ";
     getline(cin,ch);
     cout << "Enter a key: ";
     getline(cin,key);
