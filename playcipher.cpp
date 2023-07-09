@@ -5,7 +5,6 @@ using namespace std;
 #define F first
 #define S second
 #define MP make_pair
-
 vector<string>a,b,c;
 map<char,pair<ll,ll>>coor;
 string tolower(string key)
@@ -198,14 +197,19 @@ void decrypt()
 }
 void solve()
 {
-    string key,str;
-    cout<<"enter key and message"<<endl;
-    cin>>key>>str;
+    string ch,key,str;;
+    cout << "Encrpty or Decypt?(e for encrypt ,d for decrypt): ";
+    getline(cin,ch);
+    cout << "Enter a key: ";
+    getline(cin,key);
+    cout << "Enter the message: ";
+    getline(cin,str);
+    key=removespace(key);
     key=tolower(key);
-    str=tolower(str);
-    str=removespace(str);
     key=removej(key);
     key=unique_(key);
+    str=removespace(str);
+    str=tolower(str);
     str=removej(str);
     a.resize(5);
     generatetable(key);
@@ -217,12 +221,18 @@ void solve()
         }
     }
     sep(str,0);
-    ll f;
-    cout<<"encrypt or decrypt"<<endl;
-    cin>>f;
+    
     // if f is 1 encrypt or decrypt
-    if(f)encrypt();
-    else decrypt();
+    if(ch=="e" || ch=="E")
+    {
+        encrypt();
+        cout<<"Encrypted message is: ";
+    }
+    else 
+    {
+        decrypt();
+        cout<<"Decrypted message is: ";
+    }
     for(auto it:c)
     {
         cout<<it;
